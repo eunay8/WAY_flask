@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Reading WAY</title>
+</head>
+
+<body>
+    <style>
+        body{
+            margin:0px;
+        }
+        h1{
+            text-align: center;
+            padding: 60px;
+            margin: 0px;
+            border-bottom: 4px solid;
+            font-weight: bold;
+            color: black;
+        }
+        #main{
+            width : 6% ;
+            position: absolute ;
+            top: 35px;
+            left: 520px;
+        }
+        #category{
+            margin:0px;
+            border-right:black 1px solid;
+            font-family: 'Nanum Myeongjo';
+        }
+        #category li, h3{
+            margin: 0px;
+            padding: 15px;
+            color:black;
+        }
+        #category a{
+            text-decoration:none;
+        }
+        #grid{
+            display: grid;
+            grid-template-columns: 160px 1fr;
+        }
+        #pdfShow {
+            text-align: center;
+            height: 650px;
+            width : 1000px;
+            padding : 40px;
+            font-family: "Sans-Serif";
+}
+    </style>
+
+    <h1>Convert PDF to Text : 원애연 졸업작품</h1>
+    <div id="grid">
+        <div id="category">
+            <h3 style="border-bottom:black 1px solid;">category 목록</h3>
+            <a href="이동할페이지1.html" target="board">
+                <li class="list" onclick="Clicked(this);">기능1</li></a>
+            <a href="이동할페이지2.html" target="board">
+                <li class="list" onclick="Clicked(this);">기능2</li></a>
+            <a href="이동할페이지3.html" target="board">
+                <li class="list" onclick="Clicked(this);">기능3</li></a>
+    </div>
+    
+    <div id="pdfshow">
+        <br>
+        <form name="upload" action="/uploadPDF" method="POST" enctype="multipart/form-data">
+            <input type="file" name="file_upload" id="file_upload" accept=".jpg">      <!--일단 jpg // PDF로 변경 예정-->
+            <input type="submit" value="파일 업로드">
+        </form>
+
+        <br>
+        
+        <h2> 출력하기 </h2>
+        {{word}}
+        <br>
+
+        <script>
+        </script>
+        <form name="search" action="/searchWord" method="POST">
+            <input type="search" name="searchStr" id="searchStr"> 
+            <!--    ../searchWord?text={입력 내용} 방식으로 데이터 전송 -->
+            <!--    js에서 name="text"로 사용 가능?     -->
+            <input type="submit" value="검색">
+        </form>
+    </div>
+</body>
+</html>
