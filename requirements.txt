@@ -1,4 +1,0 @@
-<<install>>
-Flask 
-easyOCR 
-Flask_restful
