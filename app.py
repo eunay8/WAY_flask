@@ -1,4 +1,4 @@
-import os, sys
+# import os, sys
 from flask import Flask, request
 from flask.templating import render_template
 from flask_restful import reqparse
@@ -8,8 +8,6 @@ from werkzeug.utils import secure_filename
 import easyocr
 
 def ocrcheck(image_path):
-  import easyocr
-  import os
   
   reader = easyocr.Reader(['en','ko'], gpu=False) #gpu 사용으로 돌려보기 
   imgPath = image_path
