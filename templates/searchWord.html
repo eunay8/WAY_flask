@@ -64,23 +64,19 @@
     
     <div id="pdfshow">
         <br>
-        <form name="upload" action="/uploadPDF" method="POST" enctype="multipart/form-data">
-            <input type="file" name="file_upload" id="file_upload" accept=".jpg">      <!--일단 jpg // PDF로 변경 예정-->
+        <form name="uploadForm" action="/uploadPDF" method="POST" enctype="multipart/form-data">
+            <input type="file" name="file_upload" id="file_upload" accept=".pdf">
             <input type="submit" value="파일 업로드">
         </form>
 
         <br>
-        
-        <h2> 출력하기 </h2>
-        {{word}}
+        <iframe id="pdfFrame" src= {{file_name}}+"#page="+{{page_list}}[0] style="width:70vw; height:120vh"> </iframe>
         <br>
 
         <script>
         </script>
-        <form name="search" action="/searchWord" method="POST">
+        <form name="searchForm" action="/searchWord" method="POST">
             <input type="search" name="searchStr" id="searchStr"> 
-            <!--    ../searchWord?text={입력 내용} 방식으로 데이터 전송 -->
-            <!--    js에서 name="text"로 사용 가능?     -->
             <input type="submit" value="검색">
         </form>
     </div>

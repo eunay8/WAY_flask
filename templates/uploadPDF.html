@@ -64,16 +64,14 @@
     
     <div id="pdfshow">
         <br>
-        <form name="upload" action="/uploadPDF" method="POST" enctype="multipart/form-data">
-            <input type="file" name="file_upload" id="file_upload" accept=".jpg">      
-            <!--일단 jpg // PDF로 변경 예정-->
+        <form name="uploadForm" action="/uploadPDF" method="POST" enctype="multipart/form-data">
+            <input type="file" name="file_upload" id="file_upload" accept=".pdf"> 
             <input type="submit" value="파일 업로드" >
-            <!-- <input type="button" value="파일 업로드" onclick="window.loaction.href='/uploadPDF'"> -->
         </form>
 
         <br>
-        <!--<p id="status"> 전송값: {{file_name}} </p> -->
-        <iframe id="pdfFrame" src={{file_name}} style="width:80vw; height:80vh"> </iframe>
+        <p id="status"> 전송값: {{file_name}} </p>
+        <iframe id="pdfFrame" src= style="width:70vw; height:120vh"> </iframe>
         <br>
 
  
@@ -90,7 +88,7 @@
             //document.getElementById('pdfFrame').width = '100%'
         </script>
 
-        <form name="search" action="/searchWord" method="POST">
+        <form name="searchForm" action="/searchWord" method="POST">
             <input type="search" name="searchStr" id="searchStr">
             <input type="submit" value="검색">
             <!-- <input type="button" value"검색" onclick="window.location.href='/searchWord'"> -->
