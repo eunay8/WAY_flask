@@ -70,15 +70,17 @@
         </form>
 
         <br>
-        <iframe id="pdfFrame" src= {{file_name}}+"#page="+{{page_list}}[0] style="width:70vw; height:120vh"> </iframe>
-        <br>
 
-        <script>
-        </script>
         <form name="searchForm" action="/searchWord" method="POST">
             <input type="search" name="searchStr" id="searchStr"> 
             <input type="submit" value="검색">
         </form>
+        <br>
+        <!--<iframe id="pdfFrame" src= {{file_name}}+"#page="+{{page_list}}[0] style="width:70vw; height:120vh"> </iframe> -->
+        <p id="status"> page list: {{page_list}} </p>
+        <iframe id="pdfFrame" src= {{file_name}} style="width:70vw; height:120vh"> </iframe>
+        <br>
+
     </div>
 </body>
 </html>
