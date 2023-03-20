@@ -70,11 +70,17 @@
         </form>
 
         <br>
-        <p id="status"> 전송값: {{file_name}} </p>
-        <iframe id="pdfFrame" src= style="width:70vw; height:120vh"> </iframe>
+
+        <form name="searchForm" action="/searchWord" method="POST">
+            <input type="search" name="searchStr" id="searchStr">
+            <input type="submit" value="검색">
+            <!-- <input type="button" value"검색" onclick="window.location.href='/searchWord'"> -->
+        </form>
+        <br>
+        <p id="status"> </p>
+        <iframe id="pdfFrame" src={{file_name}} style="width:70vw; height:120vh"> </iframe>
         <br>
 
- 
         <script>
             //let frame = document.querySelector('#pdfFrame');
 
@@ -88,11 +94,6 @@
             //document.getElementById('pdfFrame').width = '100%'
         </script>
 
-        <form name="searchForm" action="/searchWord" method="POST">
-            <input type="search" name="searchStr" id="searchStr">
-            <input type="submit" value="검색">
-            <!-- <input type="button" value"검색" onclick="window.location.href='/searchWord'"> -->
-        </form>
     </div>
 </body>
 </html>
