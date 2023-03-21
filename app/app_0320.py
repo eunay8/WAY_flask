@@ -21,7 +21,6 @@ from pdf2image import convert_from_path
 
 
 
-
 def extractData(pdfPath):
     file = pdfPath
     fitz_pdf = fitz.open(file)
