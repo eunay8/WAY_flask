@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Reading WAY</title>
+</head>
+
+<body>
+    <style>
+        body{
+            margin:0px;
+        }
+        #title{
+            text-align: center;
+            padding: 60px;
+            margin: 0px;
+            border-bottom: 4px solid;
+            font-weight: bold;
+            color: black;
+        }
+        #main{
+            width : 6% ;
+            position: absolute ;
+            top: 35px;
+            left: 520px;
+        }
+        #category{
+            margin:0px;
+            border-right:black 1px solid;
+            font-family: 'Nanum Myeongjo';
+        }
+        #category li, h3{
+            margin: 0px;
+            padding: 15px;
+            color:black;
+        }
+        #category a{
+            text-decoration:none;
+        }
+        #grid{
+            display: grid;
+            grid-template-columns: 160px 1fr;
+        }
+        #pdfShow {
+            text-align: center;
+            height: 650px;
+            width : 1000px;
+            padding : 40px;
+            font-family: "Sans-Serif";
+        }
+    </style>
+
+    <div id="title">
+        <h1>WAY Reader</h1>
+        <span id="smaller"><h2>:Convert PDF-to-Text</h2></span>
+    </div>
+
+    <div id="grid">
+        <div id="category">
+            <h3 style="border-bottom:black 1px solid;">category 목록</h3>
+            <a href="이동할페이지1.html" target="board">
+                <li class="list" onclick="Clicked(this);">기능1</li></a>
+            <a href="이동할페이지2.html" target="board">
+                <li class="list" onclick="Clicked(this);">기능2</li></a>
+            <a href="이동할페이지3.html" target="board">
+                <li class="list" onclick="Clicked(this);">기능3</li></a>
+    </div>
+
+    <div id="pdfshow">
+        <br>
+        <div id="mid">
+
+            <div id="div1">
+                <button id="textBtn" style="height:60px; width: 120px;"> text 추출 </button>
+            </div>
+
+            <div id="f1">
+                <form name="uploadForm" id="uploadForm" action="/uploadPDF" method="POST" enctype="multipart/form-data">
+                    <div class="filebox">
+                        <label for="file_upload">파일 선택</label>
+                        <input class="upload-name" type="text" id="fname" placeholder="선택된 파일 없음" disabled>
+                        <input type="file" name="file_upload" id="file_upload" accept=".pdf">
+                        <input id="sub1" type="submit" value="파일 업로드">
+                    </div>
+                </form>
+            </div>
+
+            <form name="searchForm" action="/searchWord" method="POST">
+                <input type="search" name="searchStr" id="searchStr"> 
+                <input type="submit" value="검색">
+            </form>
+
+            <button id = "prevBtn" onclick = "prevAct();"> 이전 </button>
+            <button id = "nextBtn" onclick = "nextAct();"> 다음 </button>
+            <br>
+            
+            <p id="status"> page list: {{page_list}} </p>
+            <!--<iframe id="pdfFrame" src= {{file_name}} style="width:70vw; height:120vh"> </iframe>-->
+            <iframe id="pdfFrame" src= "" style="width:70vw; height:120vh"> </iframe>
+            <br>
+
+            
+            <script>
+                /*
+                const prev = document.getElementById("prevBtn");
+                const next = document.getElementById("nextBtn");
+                //const frame = document.getElementById("pdfFrame");
+                const status = document.getElementById("status");
+                // iframe 태그의 src 접근을 id value만으로 가능?
+                const fileName = {{file_name|tojson}};
+                const basicSrc = fileName + "#page=";
+
+                const pageList = {{page_list}};
+                const len = pageList.length;
+                var index = 0;
+                status.textContent = "script 확인용" + pageList[index].toString();
+                */
+
+                const frame = document.getElementById("pdfFrame");
+                const status = document.getElementById("status");
+                const fileName = {{file_name|tojson}};
+                const basicSrc = fileName+"#page=";
+                const pageList = {{page_list}};
+                const len = pageList.length - 1;
+                var index = 0;
+
+
+                t = "basicSrc: " + basicSrc + "\t\tlen: " + len.toString() + "\t\tpageList[len]+1: " + pageList[len].toString();
+                var page = basicSrc + (pageList[index] + 1).toString();
+                status.textContent = page;
+                pdfFrame.src = page;
+                
+                
+                document.getElementById("prevBtn").addEventListener('click', function(event) {
+                    status.textContent = "이전 버튼 눌림";
+                    if (index == 0) {}
+                    else {
+                        var page = basicSrc + (pageList[--index]+1).toString();
+                        pdfFrame.src = page;
+                        status.textContent = page;
+                    }
+                });
+
+                document.getElementById("nextBtn").addEventListener('click', function(event) {
+                    status.textContent = "다음 버튼 눌림";
+                    if (index == len) {}
+                    else {
+                        var page = basicSrc + (pageList[++index]+1).toString();
+                        pdfFrame.src = page;
+                        status.textContent = page;
+                    }
+                });
+
+                /*
+                function nextAct() {
+                    var page = basicSrc + (pageList[++index]+1).toString();
+                    frame.src = page;
+                    status.textContent = page;
+                }
+                */
+
+                /*
+                //1번
+                function prevAct() {
+                    status.textContent = "이전 버튼 눌림";
+                    if (index == 0) {}
+                    else {
+                        pdfFrame.src = basicSrc + string(page_list[--index]);
+                    }
+                }
+                function nextAct() {
+                    status.textContent = "다음 버튼 눌림";
+                    if (index == len) {}
+                    else {
+                        print(basicSrc, len);
+                        status.textContent = basicSrc + string(index);
+                        pdfFrame.src = basicSrc + string(page_list[++index]);
+
+                    }
+                }
+                */
+                
+
+                /*
+                //2번
+                prev.onclick = function() {
+                    status.textContent = "이전 버튼 눌림";
+                    if (index == 0) 
+                    else {
+                        prev.addEventListener("click", function(){
+                            pdfFrame.src = basicSrc + toString(page_list[--index]);
+                        })
+                    }
+                };
+
+                next.onclick = function() {
+                    status.textContent = "다음 버튼 눌림";
+                    if (index == len)
+                    else {
+                        next.addEventListener("click", function(){
+                            pdfFrame.src = basicSrc + toString(page_list[++index]);
+                        })
+                    }
+                };
+                */
+                
+                /*
+                //3번
+                next.addEventListener('click', function(event){
+                    status.textContent = "이전 버튼 눌림";
+                    if (index == 0)
+                    else {
+                        pdfFrame.src = basicSrc + pageList[--index].toString();
+                    }
+                });
+
+                prev.addEventListener('click', function(event){
+                    status.textContent = "다음 버튼 눌림";
+                    if (index == len)
+                    else {
+                        pdfFrame.src = basicSrc + pageList[++index].toString();
+                    }
+                });
+                
+
+                
+                /*
+                //4번
+                prev.onclick = function() {
+                    if (index == 0) 
+                    else {
+                        pdfFrame.src = basicSrc + string(page_list[--index]);
+                        pdfFrame.style = "width:70vw; height:120vh";
+                    }
+                };
+                next.onclick = function() {
+                    if (index == len)
+                    else {
+                        pdfFrame.src = basicSrc + string(page_list[++index]);
+                        pdfFrame.style = "width:70vw; height:120vh";
+                    }
+                };
+                */
+
+                
+                //5번
+
+            </script>
+        </div>
+
+    </div>
+</body>
+</html>
