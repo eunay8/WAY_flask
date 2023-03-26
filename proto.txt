@@ -1,0 +1,33 @@
+
+def preprocess():
+    > 파라미터: img path
+    
+    # 1. img에 Gray Scale과 선명도 조절 적용
+    # 2. 전처리 한 img 저장
+
+    > return: preprocessed_img
+
+
+def extract_Data():
+    > 파라미터: pdf파일
+    > 자료구조: dictionary  =>  key: value = 페이지번호: text 데이터(string)
+                            => global 변수로 선언
+
+    # 1. text 추출 = > 페이지 key값에 맞춰 자료구조에 추가
+    # 2. text 제거
+    # 3. PDF를 이미지로 저장
+    # 4. preprocess()함수를 호출하여 이미지 전처리
+    # 5. img OCR = > 페이지 key값에 맞춰 자료구조에 추가
+
+    > return: dictionary
+
+
+def search_Data():
+            > 파라미터: string
+
+    # 1. dictionary(전역변수)를 파라미터 string으로 검색
+    # 2. 검색 결과로 페이지 번호 key를 page_list로 저장
+        # 2.1 한 페이지에 string이 중복돼도 page_list에는 한 번만 적용
+        # 2.2 value 내의 정보로 해당 단어의 위치나 등장 횟수 등 확인 가능
+
+    > return: page_list
