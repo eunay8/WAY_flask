@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>{{file_name}}</title>
+    <link rel="stylesheet" href="{{url_for('static', filename='css/de3.css')}}">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Jua&family=Oswald:wght@500&family=Do+Hyeon&family=Sunflower:wght@500&family=Ubuntu&display=swap" rel="stylesheet">
+</head>
+
+
+<body>
+
+    <div id="title">
+        <h1>WAY Reader</h1>
+        <span id="smaller"><h2>:Convert PDF-to-Text</h2></span>
+    </div>
+
+
+    <div id="main">
+        <br>
+            <div id="f1">
+                <form name="uploadForm" id="uploadForm" action="/uploadPDF" method="POST" enctype="multipart/form-data">
+                    <div class="filebox">
+                        <label for="file_upload">파일 선택</label>
+                        <input class="upload-name" type="text" id="fname" placeholder="선택된 파일 없음" disabled>
+                        <input type="file" name="file_upload" id="file_upload" accept=".pdf">
+                        <input id="sub1" type="submit" value="파일 업로드">
+                    </div>
+                </form>
+            </div>
+            <br>            
+
+        <p id="status"> {{file_name}} </p>
+        <pre id = "tt"> {{show_text}} </pre>
+        <br>
+
+    </div>
+    
+    <script>
+        const file = document.getElementById("file_upload");
+
+        file.addEventListener('change', function(event) {
+            var fileName = file.files[0];
+            document.getElementById("fname").value = fileName.name;
+        });
+    </script>
+</body>
+</html>
