@@ -1,0 +1,181 @@
+body{
+    background-color: #cfd9f1;
+}
+#title{
+    max-width: 500px;
+    margin: 0 auto;
+    margin-top: 20px;
+    border-right: 7px solid #586671;
+    border-left: 7px solid #586671;
+    color:#586671;
+    text-align: center;
+    padding: 5px 0;
+    font-family: 'Oswald', sans-serif;
+}
+#smaller{
+    font-family: 'Ubuntu', sans-serif;
+    color: #2F5597;
+}
+
+
+#main{
+    /*border: 1px dashed black;*/
+    max-width: 2000px;
+    text-align: center;
+    /*display: inline-block;*/
+    padding: 40px;
+    padding-top: 0;
+}
+
+.btn {
+    border: 2px solid black;
+    border-radius: 5px;
+    background-color:gainsboro;
+    height: 30px;
+    width: 70px;
+    font-family: 'Jua', sans-serif;
+    vertical-align: middle;
+}
+
+#div1{
+    float: right;
+    margin: 10px;
+    margin-bottom: 30px;
+}
+#textBtn{
+    border: 2px solid steelblue;
+    border-radius: 3px;
+    background-color: gainsboro;
+    color: rgb(9, 50, 84);
+    margin: 10px;
+    font-family: 'Jua', sans-serif;
+    font-size: 1.1em;
+}
+
+
+#f1 {
+    max-width: 1500px;
+    height: 30px;
+    padding: 30px ;
+    text-align: right;
+    /*border: 2px dashed black;*/
+    margin-bottom: 25px;
+}
+
+.filebox .upload-name{
+    display: inline-block;
+    height: 30px;
+    padding:0 10px;
+    vertical-align: middle;
+    border: 1px solid black;
+    border-radius: 5px;
+    width: 40%;
+    color: black;
+}
+.filebox  label {
+    display: inline-block;
+    padding-top: 5px;
+    color: black;
+    vertical-align: middle;
+    text-align: center;
+    background-color: gainsboro;
+    cursor: pointer;
+    height: 25px;
+    width: 80px;
+    border: 2px solid black;
+    border-radius: 5px;
+    margin:auto;
+    font-family: "Jua",sans-serif;
+    font-size: 15px;
+}
+.filebox input[type="file"] {
+    position: absolute;
+    width:0;    height:0;   padding:0;  border:0;
+    overflow: hidden;
+}
+#file_upload {
+    color: aliceblue;
+    border-radius: 5px;
+}
+#sub1 {
+    border: 2px solid black;
+    border-radius: 5px;
+    background-color: gainsboro;
+    height: 33px;
+    width: 100px;
+    font-family: 'Jua', sans-serif;
+}
+
+
+#f2 {
+    background-color: #5d6c79;
+    vertical-align: middle;
+    max-width: 3000px;
+    margin-right: 100px;
+    margin-left: 100px;
+    margin-top: 10pz;
+    margin-bottom: 10px;
+    /*padding: 40px;*/
+    padding-right : 0;
+    padding-top: 40px;
+    padding-bottom: 40px;
+    /*
+    border-right: 7px solid #414b53;
+    border-left: 7px solid #414b53;
+    */
+    border: 4px solid #5d6c79;
+    border-radius: 3px;
+    text-align: center;
+    
+}
+
+#searchStr {
+    border:1px solid black;
+    border-radius: 2px;
+    height: 40px;
+    width: 500px;
+    background-color: #E6EAF3;
+    padding: 10px;
+}
+
+#textBtn{
+    height: 40px; width: 70px;
+    border: 2px solid black;
+    margin-right: 0px;
+    text-align: center;
+}
+
+#btns {
+    text-align: right;
+}
+
+.br {
+    height:40px; padding: 0; border: 0;
+    width: 100px;
+    /*background-color: #7E94a5;*/
+    background-color: #cfd9f1;
+}
+
+#pdfFrame {
+    border: 1px dashed black;
+}
+
+
+#category{
+    margin:0px;
+    border-right:black 1px solid;
+    font-family: 'Nanum Myeongjo';
+}
+#category li, h3{
+    margin: 0px;
+    padding: 15px;
+    color:black;
+}
+#category a{
+    text-decoration:none;
+    font-family: 'Jua', sans-serif;
+}
+#grid{
+    display: grid;
+    grid-template-columns: 160px 1fr;
+}
