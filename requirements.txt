@@ -6,3 +6,5 @@ opencv-python-headless==4.5.4.60
 pdf2image
 PyMuPDF
 Pillow
+fitz
+//-> error 메세지 발생 시 pip3 install launchpadlib==1.10.13
